@@ -1,0 +1,52 @@
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  list-style: none;
+  font-size: 14px;
+}
+
+.facts li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.available {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.square {
+  width: 7px;
+  height: 7px;
+  background: var(--fg);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  transition: color var(--ease);
+}
+
+.more:hover {
+  color: var(--fg);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

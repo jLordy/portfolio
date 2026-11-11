@@ -1,0 +1,360 @@
+/* ---------- Nav card ---------- */
+
+.navCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--ease);
+}
+
+.navCard:hover {
+  border-color: var(--fg);
+}
+
+.navCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--fg-faint);
+}
+
+.navCard:hover .navArrow {
+  color: var(--fg);
+  transform: translate(1px, -1px);
+}
+
+.navArrow {
+  transition: transform var(--ease), color var(--ease);
+}
+
+.navCardTitle {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.navCardText {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+
+/* ---------- Badges ---------- */
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 7px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  white-space: nowrap;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.statusGlyph {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--fg);
+  flex-shrink: 0;
+}
+
+.statusGlyph[data-status="Live"],
+.statusGlyph[data-status="Completed"],
+.statusGlyph[data-status="Maintained"] {
+  background: var(--fg);
+}
+
+.statusGlyph[data-status="In development"] {
+  position: relative;
+}
+
+.statusGlyph[data-status="In development"]::after {
+  content: "";
+  position: absolute;
+  inset: 0 50% 0 0;
+  background: var(--fg);
+}
+
+.statusGlyph[data-status="Archived"] {
+  border-color: var(--fg-faint);
+}
+
+/* ---------- Project card ---------- */
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .projectGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.projectCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  transition: border-color var(--ease);
+}
+
+.projectCard:hover {
+  border-color: var(--fg);
+}
+
+.projectCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.projectName {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Stretched link: the whole card opens the project, inner links stay clickable. */
+.projectName a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.projectName a:focus-visible {
+  outline: none;
+}
+
+.projectName a:focus-visible::after {
+  outline: 1px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.projectSummary {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+}
+
+.projectCard .badges {
+  margin-top: 16px;
+}
+
+.projectFoot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.projectFootInner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.extLink {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg-muted);
+  transition: color var(--ease);
+}
+
+.extLink:hover {
+  color: var(--fg);
+}
+
+.readMore {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* ---------- Filter tabs ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.filter {
+  position: relative;
+  padding: 8px 0 10px;
+  font-size: 13.5px;
+  color: var(--fg-faint);
+  transition: color var(--ease);
+}
+
+.filter:hover {
+  color: var(--fg);
+}
+
+.filter[aria-pressed="true"] {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.filter[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--fg);
+}
+
+.count {
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-faint);
+}
+
+/* ---------- Tech tiles ---------- */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 8px;
+  list-style: none;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--ease);
+}
+
+.tile:hover {
+  border-color: var(--border-strong);
+}
+
+.tileIcon {
+  color: var(--fg);
+}
+
+.tileText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tileName {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.tileNote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-faint);
+  line-height: 1.4;
+}
+
+/* ---------- Selected projects (table-style list) ---------- */
+
+.rows {
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.rowItem {
+  border-bottom: 1px solid var(--border);
+}
+
+.rowLink {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 4px;
+  transition: background-color var(--ease);
+}
+
+.rowLink:hover {
+  background: var(--bg-subtle);
+}
+
+.rowName {
+  font-weight: 500;
+  font-size: 14.5px;
+}
+
+.rowSummary {
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+
+.rowMeta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-faint);
+}
+
+@media (max-width: 640px) {
+  .rowLink {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 16px;
+  }
+
+  .rowSummary {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

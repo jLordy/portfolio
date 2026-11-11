@@ -1,0 +1,107 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-height: 100%;
+  padding: 28px 16px 24px 20px;
+}
+
+.group > :global(.label) {
+  padding: 0 10px;
+  margin-bottom: 8px;
+}
+
+.list,
+.sublist {
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.link,
+.sublink {
+  position: relative;
+  flex: 1;
+  display: block;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--fg-muted);
+  border-radius: var(--radius-sm);
+  transition: color var(--ease), background-color var(--ease);
+}
+
+.link:hover,
+.sublink:hover {
+  color: var(--fg);
+  background: var(--bg-muted);
+}
+
+.link[data-active],
+.sublink[data-active] {
+  color: var(--fg);
+  font-weight: 500;
+  background: var(--bg-muted);
+}
+
+.link[data-active]::before,
+.sublink[data-active]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--fg);
+}
+
+.link[data-ancestor] {
+  color: var(--fg);
+}
+
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-left: 2px;
+  border-radius: var(--radius-sm);
+  color: var(--fg-faint);
+  transition: color var(--ease), background-color var(--ease);
+}
+
+.toggle:hover {
+  color: var(--fg);
+  background: var(--bg-muted);
+}
+
+.toggle svg {
+  transition: transform var(--ease);
+}
+
+.toggle svg[data-open] {
+  transform: rotate(90deg);
+}
+
+.sublist {
+  margin: 2px 0 4px 10px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border);
+}
+
+.sublink {
+  font-size: 13.5px;
+  padding: 4px 10px;
+}
+
+.meta {
+  margin-top: auto;
+  padding: 16px 10px 0;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.8;
+  color: var(--fg-faint);
+}

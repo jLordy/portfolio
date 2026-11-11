@@ -1,0 +1,56 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.challenge {
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+}
+
+.challenge:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.challengeTitle {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.challengeBody {
+  margin-top: 4px;
+  max-width: 68ch;
+  font-size: 14.5px;
+  color: var(--fg-muted);
+}
+
+.links {
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.linkRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14.5px;
+  transition: background-color var(--ease);
+}
+
+.linkRow:hover {
+  background: var(--bg-subtle);
+}
+
+.linkHost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-faint);
+}
